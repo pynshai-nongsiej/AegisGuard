@@ -18,22 +18,9 @@ pub struct EvaluateResponse {
 }
 
 pub fn evaluate(req: &EvaluateRequest) -> EvaluateResponse {
-    let command = req.command.to_ascii_lowercase();
-    let mut score = 0u8;
-    let mut reasons = Vec::new();
-    for (need, points, reason) in [
-        ("rm -rf", 100, "destructive recursive deletion"),
-        ("mkfs", 100, "filesystem destruction"),
-        ("dd if=", 90, "raw disk write"),
-        ("curl ", 35, "network transfer"),
-        ("wget ", 35, "network transfer"),
-        ("aws_secret_access_key", 75, "cloud secret exposure"),
-        ("github_token", 75, "access token exposure"),
-        (".env", 45, "environment secret access"),
-        ("base64 -d", 25, "obfuscated payload"),
-    ] { if command.contains(need) { score = score.saturating_add(points); reasons.push(reason.to_string()); } }
-    let decision = if score >= 70 { Decision::Deny } else if score >= 30 { Decision::Review } else { Decision::Allow };
-    EvaluateResponse { decision, score, reasons }
+    let report = crate::policy::analyze_command(&req.command);
+    let decision = match report.decision { crate::policy::PolicyDecision::Allow => Decision::Allow, crate::policy::PolicyDecision::Review => Decision::Review, crate::policy::PolicyDecision::Deny => Decision::Deny };
+    EvaluateResponse { decision, score: report.score, reasons: report.findings.into_iter().map(|f| format!("{} ({})", f.description, f.evidence)).collect() }
 }
 
 #[cfg(test)]
