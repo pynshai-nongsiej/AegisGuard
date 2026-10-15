@@ -1,0 +1,7 @@
+.git
+.omnirush
+target
+.env
+.env.*
+*.jsonl
+*.sock
