@@ -1,10 +1,6 @@
-[package]
-name = "aegisguard"
-version = "0.1.0"
-edition = "2021"
-
-[lib]
-path = "src/lib.rs"
+[workspace]
+resolver = "2"
+members = ["crates/aegisguard"]
 
 [profile.release]
 strip = true

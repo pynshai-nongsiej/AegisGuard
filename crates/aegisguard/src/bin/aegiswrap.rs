@@ -1,0 +1,3 @@
+use aegisguard::{evaluate, EvaluateRequest, Decision};
+use std::{env, process::Command};
+fn main() { let args: Vec<_> = env::args().skip(1).collect(); let command = args.join(" "); let r = evaluate(&EvaluateRequest { command: command.clone(), cwd: env::current_dir().ok().map(|p| p.display().to_string()), actor: None }); eprintln!("aegiswrap: {:?} (score {})", r.decision, r.score); if r.decision != Decision::Allow { std::process::exit(126); } if args.is_empty() { return; } let status = Command::new(&args[0]).args(&args[1..]).status().expect("failed to execute"); std::process::exit(status.code().unwrap_or(1)); }
