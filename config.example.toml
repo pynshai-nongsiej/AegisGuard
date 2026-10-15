@@ -1,0 +1,7 @@
+# AegisGuard safe defaults. Copy to config.toml and adjust locally.
+socket_path = "/tmp/aegisguard.sock"
+log_json = false
+
+# Requests that match these classes are denied by default.
+deny_network_secret_exfiltration = true
+deny_dangerous_commands = true

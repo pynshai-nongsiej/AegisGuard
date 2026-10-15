@@ -1,0 +1,13 @@
+/target/
+.env
+.env.*
+!.env.example
+config.toml
+*.log
+*.sock
+*.socket
+.DS_Store
+.idea/
+.vscode/
+coverage/
+dist/
