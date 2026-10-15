@@ -54,6 +54,10 @@ docker build -t aegisguard .
 docker run --rm -e AEGISGUARD_SOCKET=/tmp/aegisguard.sock aegisguard
 ```
 
+## Demo and submission assets
+
+The judge demo storyboard and safe commands are in [`docs/demo/recording-script.md`](docs/demo/recording-script.md). The repository also includes GitHub-renderable illustrative terminal assets: [`allow-terminal.svg`](docs/demo/allow-terminal.svg) and [`blocked-terminal.svg`](docs/demo/blocked-terminal.svg). A watchable video link cannot be created from the repository itself because it requires an external video account and sharing permission; follow the publishing checklist in the script after recording.
+
 ## Project layout
 
 - `crates/aegisguard/src/policy.rs`: tokenizer, secret shield, scoring and decisions.

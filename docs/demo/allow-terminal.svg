@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" rx="18" fill="#101827"/>
+  <rect width="1200" height="54" rx="18" fill="#1f2937"/>
+  <circle cx="30" cy="27" r="8" fill="#ef4444"/><circle cx="56" cy="27" r="8" fill="#f59e0b"/><circle cx="82" cy="27" r="8" fill="#22c55e"/>
+  <text x="120" y="34" fill="#cbd5e1" font-family="monospace" font-size="18">AegisGuard — safe evaluation</text>
+  <text x="36" y="105" fill="#93c5fd" font-family="monospace" font-size="22">$ ./target/release/aegisguard evaluate 'git status'</text>
+  <text x="36" y="155" fill="#86efac" font-family="monospace" font-size="26">{"decision":"Allow","score":0,"reasons":[]}</text>
+  <text x="36" y="235" fill="#93c5fd" font-family="monospace" font-size="22">$ ./target/release/aegiswrap printf 'safe command\n'</text>
+  <text x="36" y="285" fill="#86efac" font-family="monospace" font-size="26">aegiswrap: Allow (score 0)</text>
+  <text x="36" y="365" fill="#cbd5e1" font-family="sans-serif" font-size="24">Read-only commands pass through the local policy gate.</text>
+  <text x="36" y="410" fill="#94a3b8" font-family="sans-serif" font-size="20">No shell execution occurs during evaluation.</text>
+</svg>

